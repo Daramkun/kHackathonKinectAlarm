@@ -1,7 +1,9 @@
-﻿using System;
+﻿using AlarmBackTask;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -55,6 +57,14 @@ namespace KinectAlarm
                 int.Parse((Hour.SelectedValue as TextBlock).Text), 
                 int.Parse((Minutes.SelectedValue as TextBlock).Text),
                 alarmMemo.Text));
+
+			var builder = new BackgroundTaskBuilder ();
+			builder.Name = alarmMemo.Text;
+			builder.TaskEntryPoint = "AlarmBackTask.AlarmTask";
+			builder.AddCondition ( new SystemCondition ( SystemConditionType.UserPresent ) );
+			builder.SetTrigger ( new TimeTrigger ( 0, false ) );
+			builder.Register ();
+
             AlarmCollection.saveData(() => { Frame.GoBack(); });
         }
 

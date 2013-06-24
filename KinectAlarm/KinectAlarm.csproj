@@ -102,6 +102,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\AlarmBackTask\AlarmBackTask.csproj">
+      <Project>{271ec833-5f3d-4816-9140-4c72e9333d17}</Project>
+      <Name>AlarmBackTask</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KinectData\KinectData.csproj">
       <Project>{0f6ac43a-e573-4737-bec3-edd87e43eadd}</Project>
       <Name>KinectData</Name>
