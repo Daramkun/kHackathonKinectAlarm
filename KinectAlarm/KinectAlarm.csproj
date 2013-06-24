@@ -112,11 +112,16 @@
     <Compile Include="AddActionPage.xaml.cs">
       <DependentUpon>AddActionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Alarm.cs" />
+    <Compile Include="AlarmCollection.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddAlarmPage.xaml.cs">
       <DependentUpon>AddAlarmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmScreen.xaml.cs">
+      <DependentUpon>AlarmScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="Common\BindableBase.cs" />
@@ -133,9 +138,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoveActionPage.xaml.cs">
-      <DependentUpon>RemoveActionPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -163,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AlarmScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\StandardStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -172,10 +178,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RemoveActionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

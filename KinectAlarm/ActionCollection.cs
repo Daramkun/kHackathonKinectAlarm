@@ -24,6 +24,11 @@ namespace KinectAlarm
             actionList.RemoveAt(index);
         }
 
+        public static void RemoveAction(int index)
+        {
+            actionList.RemoveAt(index);
+        }
+
 		public static ObservableCollection<Kinect.Joint []> ActionList { get { return actionList; } }
 
         public static async void LoadData()
@@ -37,7 +42,8 @@ namespace KinectAlarm
 					DataReader reader = new DataReader ( raStream );
 					reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
 					reader.ByteOrder = ByteOrder.LittleEndian;
-                    int dataLength = reader.ReadInt32();
+
+					int dataLength = reader.ReadInt32();
                     for (int i = 0; i < dataLength; i++)
                     {
                         Kinect.Joint[] action = new Kinect.Joint[20];
