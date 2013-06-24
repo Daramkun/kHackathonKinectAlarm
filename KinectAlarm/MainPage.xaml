@@ -25,6 +25,7 @@
         </Grid>
         
         <Grid Grid.Row="1">
+            <Button Content="Button" HorizontalAlignment="Left" Margin="279,158,0,0" VerticalAlignment="Top" Height="117" Width="326" Click="Button_Click"/>
             <!-- TODO: Application Page layout -->
             
         </Grid>
