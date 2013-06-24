@@ -24,6 +24,7 @@ namespace KinectAlarm
 		public MainPage ()
 		{
 			this.InitializeComponent ();
+            AlarmList.ItemsSource = AlarmCollection.AlarmList;
 		}
 
 		/// <summary>
@@ -37,6 +38,7 @@ namespace KinectAlarm
 		/// 사전 상태입니다. 페이지를 처음 방문할 때는 이 값이 null입니다.</param>
 		protected override void LoadState ( Object navigationParameter, Dictionary<String, Object> pageState )
 		{
+
 		}
 
 		/// <summary>
@@ -67,6 +69,12 @@ namespace KinectAlarm
         private void buttonRemoveAction_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(RemoveActionPage));
+        }
+
+        private void pageRoot_Loaded(object sender, RoutedEventArgs e)
+        {
+            AlarmCollection.loadData();
+            ActionCollection.LoadData();
         }
 	}
 }

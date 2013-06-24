@@ -51,8 +51,11 @@ namespace KinectAlarm
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-
-
+            AlarmCollection.addAlarm(new Alarm(DateType.SelectedIndex,
+                int.Parse((Hour.SelectedValue as TextBlock).Text), 
+                int.Parse((Minutes.SelectedValue as TextBlock).Text),
+                alarmMemo.Text));
+            AlarmCollection.saveData();
             Frame.GoBack();
         }
 

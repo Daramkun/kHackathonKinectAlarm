@@ -39,12 +39,12 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Add Alarm" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <ComboBox HorizontalAlignment="Left" Height="75" Margin="249,108,0,0" Grid.Row="2" VerticalAlignment="Top" Width="238">
+        <ComboBox x:Name="DateType" HorizontalAlignment="Left" Height="75" Margin="249,108,0,0" Grid.Row="2" VerticalAlignment="Top" Width="238">
             <TextBlock Text="WeekDay" FontSize="25"/>
             <TextBlock Text="WeekEnd" FontSize="25"/>
             <TextBlock Text="DayByDay" FontSize="25"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Height="75" Margin="533,108,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80">
+        <ComboBox x:Name="Hour" HorizontalAlignment="Left" Height="75" Margin="533,108,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80">
             <TextBlock Text="1" FontSize="25"/>
             <TextBlock Text="2" FontSize="25"/>
             <TextBlock Text="3" FontSize="25"/>
@@ -70,7 +70,7 @@
             <TextBlock Text="23" FontSize="25"/>
             <TextBlock Text="24" FontSize="25"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Height="75" Margin="841,108,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95">
+        <ComboBox x:Name="Minutes" HorizontalAlignment="Left" Height="75" Margin="841,108,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95">
             <TextBlock Text="0" FontSize="25"/>
             <TextBlock Text="15" FontSize="25"/>
             <TextBlock Text="30" FontSize="25"/>
@@ -78,7 +78,7 @@
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Height="75" Margin="653,108,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Hour" FontSize="60" VerticalAlignment="Top" Width="146"/>
         <TextBlock HorizontalAlignment="Left" Height="75" Margin="962,108,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Min" FontSize="60" VerticalAlignment="Top" Width="114"/>
-        <TextBox HorizontalAlignment="Left" Height="84" Margin="249,20,0,0" Grid.Row="3" TextWrapping="Wrap" Text="여기엔 메모를 추가합니다" FontSize="60" VerticalAlignment="Top" Width="827"/>
+        <TextBox x:Name="alarmMemo" HorizontalAlignment="Left" Height="84" Margin="249,20,0,0" Grid.Row="3" TextWrapping="Wrap" Text="여기엔 메모를 추가합니다" FontSize="60" VerticalAlignment="Top" Width="827"/>
 
         <VisualStateManager.VisualStateGroups>
 

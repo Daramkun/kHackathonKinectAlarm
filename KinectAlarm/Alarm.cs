@@ -9,21 +9,17 @@ namespace KinectAlarm
     public class Alarm
     {
         public enum DateType { WeekDay = 0, Weekend = 1, DayByDay = 2 }
-        DateType dateType;
-        TimeSpan timeForAlarm;
-        String alarmMemo;
+        public DateType dateType { get; set; }
+        public TimeSpan timeForAlarm { get; set; }
+        public String alarmMemo { get; set; }
 
-        public Alarm(String inputDateType, int h, int m, String memo)
+        public Alarm(int inputDateType, int h, int m, String memo)
         {
-            if (inputDateType == "WeekDay")
-                dateType = DateType.WeekDay;
-            else if (inputDateType == "WeekEnd")
-                dateType = DateType.Weekend;
-            else if (inputDateType == "DayByDay")
-                dateType = DateType.DayByDay;
+            dateType = (DateType)inputDateType;
 
             timeForAlarm = new TimeSpan(h, m, 0);
             alarmMemo = memo;
         }
+
     }
 }

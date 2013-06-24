@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:KinectAlarm" xmlns:common="using:KinectAlarm.Common">
+    xmlns:local="using:KinectAlarm" xmlns:common="using:KinectAlarm.Common" Loaded="pageRoot_Loaded">
 
     <Page.Resources>
         <x:String x:Key="AppName">정열적인 알람</x:String>
