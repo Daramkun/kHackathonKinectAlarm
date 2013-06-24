@@ -38,7 +38,7 @@ namespace KinectAlarm
 					reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
 					reader.ByteOrder = ByteOrder.LittleEndian;
 
-					await reader.LoadAsync ( raStream.Size );
+					await reader.LoadAsync ( (uint)raStream.Size );
 
 					int dataLength = reader.ReadInt32();
                     for (int i = 0; i < dataLength; i++)
