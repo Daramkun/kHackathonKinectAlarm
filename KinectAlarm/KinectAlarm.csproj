@@ -118,6 +118,9 @@
     <Compile Include="AddAlarmPage.xaml.cs">
       <DependentUpon>AddAlarmPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AlarmScreen.xaml.cs">
+      <DependentUpon>AlarmScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
@@ -160,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddAlarmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

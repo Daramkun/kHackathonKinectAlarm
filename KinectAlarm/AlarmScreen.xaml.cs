@@ -19,9 +19,9 @@ namespace KinectAlarm
     /// <summary>
     /// 자체에서 사용하거나 프레임 내에서 탐색할 수 있는 빈 페이지입니다.
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public sealed partial class AlarmScreen : Page
     {
-        public BlankPage1()
+        public AlarmScreen()
         {
             this.InitializeComponent();
         }
