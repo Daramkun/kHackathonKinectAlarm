@@ -13,9 +13,9 @@ namespace KinectProvider
 {
 	public class KinectProviderService : IKinectProviderService
 	{
-		KinectSensor kinectSensor;
+		static KinectSensor kinectSensor;
 
-		public KinectProviderService ()
+		static KinectProviderService ()
 		{
 			KinectSensor.KinectSensors.StatusChanged += ( object sender, StatusChangedEventArgs e ) =>
 			{
@@ -36,7 +36,7 @@ namespace KinectProvider
 			} ).Start ();
 		}
 
-		private void SetupKinectSensor ()
+		private static void SetupKinectSensor ()
 		{
 			kinectSensor.SkeletonStream.Enable ();
 			kinectSensor.ColorStream.Enable ();
