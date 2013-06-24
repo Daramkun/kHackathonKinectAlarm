@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,16 +12,14 @@ namespace KinectAlarm.Common
 	{
 		double AsDouble ( object value )
 		{
-			var valueText = value as string;
-			if ( valueText != null )
-				return double.Parse ( valueText );
-			else
-				return ( double ) value;
+			return double.Parse ( value.ToString() );
 		}
 
 		public object Convert ( object value, Type targetType, object parameter, string language )
 		{
-			return AsDouble ( value ) * AsDouble ( parameter );
+            double vvvvvv = AsDouble(value) * AsDouble(parameter);
+            Debug.WriteLine(vvvvvv);
+			return vvvvvv;
 		}
 
 		public object ConvertBack ( object value, Type targetType, object parameter, string language )

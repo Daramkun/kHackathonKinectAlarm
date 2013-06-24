@@ -15,19 +15,19 @@ namespace KinectAlarm
 	[ServiceContract ( ConfigurationName = "IKinectProviderService" )]
 	public interface IKinectProviderService
 	{
-		[OperationContractAttribute ( Action = "http://127.0.0.1:49172/IKinectProviderService/GetData",
-			ReplyAction = "http://127.0.0.1:49172/IKinectProviderService/GetDataResponse" )]
+		[OperationContract /*( Action = "http://localhost:49172/IKinectProviderService/GetData",
+			ReplyAction = "http://localhost:49172/IKinectProviderService/GetDataResponse" )*/]
 		Kinect GetData ( Kinect composite );
-		[OperationContractAttribute ( Action = "http://127.0.0.1:49172/IKinectProviderService/GetData",
-			ReplyAction = "http://127.0.0.1:49172/IKinectProviderService/GetDataResponse" )]
+		[OperationContract /*( Action = "http://localhost:49172/IKinectProviderService/GetData",
+			ReplyAction = "http://localhost:49172/IKinectProviderService/GetDataResponse" )*/]
 		Task<Kinect> GetDataAsync ( Kinect composite );
 	}
 
 	[GeneratedCode ( "System.ServiceModel", "4.0.0.0" )]
 	public interface IKinectProviderServiceChannel : IKinectProviderService, IClientChannel { }
 
-	[DebuggerStepThroughAttribute ()]
-	[GeneratedCodeAttribute ( "System.ServiceModel", "4.0.0.0" )]
+	[DebuggerStepThrough]
+	[GeneratedCode ( "System.ServiceModel", "4.0.0.0" )]
 	public partial class KinectProviderServiceClient : ClientBase<IKinectProviderService>, IKinectProviderService
 	{
 		public KinectProviderServiceClient () { }
