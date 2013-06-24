@@ -26,17 +26,6 @@ namespace KinectAlarm
 		public KinectPage ()
 		{
 			this.InitializeComponent ();
-			patterns = new List<Kinect.Joint []> ();
-			if ( ActionCollection.ActionList.Count > 0 )
-			{
-				Random rand = new Random();
-				for ( int i = 0; i < 3; i++ )
-				{
-					patterns.Add ( ActionCollection.ActionList [ rand.Next ( 0,
-						ActionCollection.ActionList.Count ) ] );
-				}
-			}
-			SetNextPattern ();
 		}
 
 		private void SetNextPattern ()
@@ -82,7 +71,19 @@ namespace KinectAlarm
 		}
 
         private void Page_Loaded_1(object sender, RoutedEventArgs e)
-        {
+		{
+			patterns = new List<Kinect.Joint []> ();
+			if ( ActionCollection.ActionList.Count > 0 )
+			{
+				Random rand = new Random ();
+				for ( int i = 0; i < 3; i++ )
+				{
+					patterns.Add ( ActionCollection.ActionList [ rand.Next ( 0,
+						ActionCollection.ActionList.Count ) ] );
+				}
+			}
+			SetNextPattern ();
+
             client = new KinectProviderServiceClient(new BasicHttpBinding(),
                 new EndpointAddress(new Uri("http://localhost:49172/KinectProviderService.svc", UriKind.RelativeOrAbsolute)));
             var timer = new DispatcherTimer();
