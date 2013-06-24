@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectAlarm", "KinectAlarm\KinectAlarm.csproj", "{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectProvider", "KinectProvider\KinectProvider.csproj", "{7D94A39C-0A0B-4324-8D76-E5A98649BF17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectData", "KinectData\KinectData.csproj", "{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,26 @@ Global
 		{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}.Release|x86.ActiveCfg = Release|x86
 		{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}.Release|x86.Build.0 = Release|x86
 		{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}.Release|x86.Deploy.0 = Release|x86
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Release|x64.ActiveCfg = Release|Any CPU
+		{7D94A39C-0A0B-4324-8D76-E5A98649BF17}.Release|x86.ActiveCfg = Release|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Release|ARM.ActiveCfg = Release|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Release|x64.ActiveCfg = Release|Any CPU
+		{0F6AC43A-E573-4737-BEC3-EDD87E43EADD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

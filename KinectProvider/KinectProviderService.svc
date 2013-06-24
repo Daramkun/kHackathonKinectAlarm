@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="KinectProvider.KinectProviderService" CodeBehind="KinectProviderService.svc.cs" %>
