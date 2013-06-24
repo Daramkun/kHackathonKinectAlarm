@@ -72,6 +72,9 @@ namespace KinectAlarm
 
         private void Page_Loaded_1(object sender, RoutedEventArgs e)
 		{
+			if ( ActionCollection.ActionList.Count == 0 )
+				ActionCollection.LoadData ();
+
 			patterns = new List<Kinect.Joint []> ();
 			if ( ActionCollection.ActionList.Count > 0 )
 			{
