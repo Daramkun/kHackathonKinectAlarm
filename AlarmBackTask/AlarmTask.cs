@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace AlarmBackTask
 				"<text id='1'>열정적인 아침</text><text id='2'>" + "" +
 				"</text></binding></visual></toast>" );
 			toaster.Show ( new Windows.UI.Notifications.ToastNotification ( xml ) );
+			Debug.WriteLine ( "15!!!!!!!!!!!!!!!!!!!!!!!" );
 		}
 	}
 }
