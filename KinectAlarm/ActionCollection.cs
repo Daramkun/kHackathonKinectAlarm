@@ -31,10 +31,12 @@ namespace KinectAlarm
             actionList.Clear();
             try
             {
-                StorageFile storageFile = await StorageFile.GetFileFromPathAsync("actionList.dat");
+				StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync ( "actionList.dat" );
                 using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.Read))
                 {
-                    DataReader reader = new DataReader(raStream);
+					DataReader reader = new DataReader ( raStream );
+					reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+					reader.ByteOrder = ByteOrder.LittleEndian;
                     int dataLength = reader.ReadInt32();
                     for (int i = 0; i < dataLength; i++)
                     {
@@ -57,10 +59,13 @@ namespace KinectAlarm
 
         public static async void SaveData()
         {
-            StorageFile storageFile = await StorageFile.CreateStreamedFileAsync("actionList.dat", null, null);
+			StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync ( "actionList.dat" );
             using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
             {
                 DataWriter writer = new DataWriter(raStream);
+				writer.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+				writer.ByteOrder = ByteOrder.LittleEndian;
+
                 writer.WriteInt32(actionList.Count);
                 foreach (Kinect.Joint[] action in actionList)
                 {
@@ -73,6 +78,7 @@ namespace KinectAlarm
                     }
                 }
                 await writer.FlushAsync();
+				await writer.StoreAsync ();
             }
         }
     }
