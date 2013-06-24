@@ -58,9 +58,9 @@
     </Grid>
 
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar Background="Black">
+        <AppBar>
             <StackPanel Orientation="Horizontal">
-                
+                <Button x:Name="buttonAddAction" Style="{StaticResource AddActionAppBarButtonStyle}" Click="buttonAddAction_Click" />
             </StackPanel>
         </AppBar>
     </common:LayoutAwarePage.BottomAppBar>
