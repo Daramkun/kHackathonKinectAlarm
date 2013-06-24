@@ -48,32 +48,32 @@ namespace KinectAlarm
 			}
 
 			Kinect.Joint [] skeleton = patterns [ 0 ];
-			SetPosition ( patternHead, skeleton [ ( int ) Kinect.JointType.Head ] );
-			SetPosition ( patternShoulderCenter, skeleton [ ( int ) Kinect.JointType.ShoulderCenter ] );
-			SetPosition ( patternShoulderLeft, skeleton [ ( int ) Kinect.JointType.ShoulderLeft ] );
-			SetPosition ( patternShoulderRight, skeleton [ ( int ) Kinect.JointType.ShoulderRight ] );
-			SetPosition ( patternSpine, skeleton [ ( int ) Kinect.JointType.Spine ] );
-			SetPosition ( patternHipCenter, skeleton [ ( int ) Kinect.JointType.HipCenter ] );
-			SetPosition ( patternHipLeft, skeleton [ ( int ) Kinect.JointType.HipLeft ] );
-			SetPosition ( patternHipRight, skeleton [ ( int ) Kinect.JointType.HipRight ] );
-			SetPosition ( patternKneeLeft, skeleton [ ( int ) Kinect.JointType.KneeLeft ] );
-			SetPosition ( patternKneeRight, skeleton [ ( int ) Kinect.JointType.KneeRight ] );
-			SetPosition ( patternAnkleLeft, skeleton [ ( int ) Kinect.JointType.AnkleLeft ] );
-			SetPosition ( patternAnkleRight, skeleton [ ( int ) Kinect.JointType.AnkleRight ] );
-			SetPosition ( patternFootLeft, skeleton [ ( int ) Kinect.JointType.FootLeft ] );
-			SetPosition ( patternFootRight, skeleton [ ( int ) Kinect.JointType.FootRight ] );
-			SetPosition ( patternElbowLeft, skeleton [ ( int ) Kinect.JointType.ElbowLeft ] );
-			SetPosition ( patternElbowRight, skeleton [ ( int ) Kinect.JointType.ElbowRight ] );
-			SetPosition ( patternWristLeft, skeleton [ ( int ) Kinect.JointType.WristLeft ] );
-			SetPosition ( patternWristRight, skeleton [ ( int ) Kinect.JointType.WristRight ] );
-			SetPosition ( patternHandLeft, skeleton [ ( int ) Kinect.JointType.HandLeft ] );
-			SetPosition ( patternHandRight, skeleton [ ( int ) Kinect.JointType.HandRight ] );
+			SetPosition ( patternHead, skeleton [ ( int ) Kinect.JointType.Head ], patternCanvas );
+			SetPosition ( patternShoulderCenter, skeleton [ ( int ) Kinect.JointType.ShoulderCenter ], patternCanvas );
+			SetPosition ( patternShoulderLeft, skeleton [ ( int ) Kinect.JointType.ShoulderLeft ], patternCanvas );
+			SetPosition ( patternShoulderRight, skeleton [ ( int ) Kinect.JointType.ShoulderRight ], patternCanvas );
+			SetPosition ( patternSpine, skeleton [ ( int ) Kinect.JointType.Spine ], patternCanvas );
+			SetPosition ( patternHipCenter, skeleton [ ( int ) Kinect.JointType.HipCenter ], patternCanvas );
+			SetPosition ( patternHipLeft, skeleton [ ( int ) Kinect.JointType.HipLeft ], patternCanvas );
+			SetPosition ( patternHipRight, skeleton [ ( int ) Kinect.JointType.HipRight ], patternCanvas );
+			SetPosition ( patternKneeLeft, skeleton [ ( int ) Kinect.JointType.KneeLeft ], patternCanvas );
+			SetPosition ( patternKneeRight, skeleton [ ( int ) Kinect.JointType.KneeRight ], patternCanvas );
+			SetPosition ( patternAnkleLeft, skeleton [ ( int ) Kinect.JointType.AnkleLeft ], patternCanvas );
+			SetPosition ( patternAnkleRight, skeleton [ ( int ) Kinect.JointType.AnkleRight ], patternCanvas );
+			SetPosition ( patternFootLeft, skeleton [ ( int ) Kinect.JointType.FootLeft ], patternCanvas );
+			SetPosition ( patternFootRight, skeleton [ ( int ) Kinect.JointType.FootRight ], patternCanvas );
+			SetPosition ( patternElbowLeft, skeleton [ ( int ) Kinect.JointType.ElbowLeft ], patternCanvas );
+			SetPosition ( patternElbowRight, skeleton [ ( int ) Kinect.JointType.ElbowRight ], patternCanvas );
+			SetPosition ( patternWristLeft, skeleton [ ( int ) Kinect.JointType.WristLeft ], patternCanvas );
+			SetPosition ( patternWristRight, skeleton [ ( int ) Kinect.JointType.WristRight ], patternCanvas );
+			SetPosition ( patternHandLeft, skeleton [ ( int ) Kinect.JointType.HandLeft ], patternCanvas );
+			SetPosition ( patternHandRight, skeleton [ ( int ) Kinect.JointType.HandRight ], patternCanvas );
 		}
 
-		private void SetPosition ( Ellipse eliipse, Kinect.Joint joint )
+		private void SetPosition ( Ellipse eliipse, Kinect.Joint joint, Canvas canvas )
 		{
-			Canvas.SetLeft ( eliipse, joint.X * 300 + skeletonCanvas.ActualWidth / 2 );
-            Canvas.SetTop(eliipse, -joint.Y * 300 + skeletonCanvas.ActualHeight / 2);
+			Canvas.SetLeft ( eliipse, joint.X * 300 + canvas.ActualWidth / 2 );
+            Canvas.SetTop(eliipse, -joint.Y * 300 + canvas.ActualHeight / 2);
 		}
 
 		protected override void OnNavigatedTo ( NavigationEventArgs e )
@@ -101,26 +101,26 @@ namespace KinectAlarm
                 if (data.Skeleton == null || data.Skeleton.Length == 0) { textNotice.Text = "Skeleton is not found."; return; }
                 textNotice.Text = "";
 
-                SetPosition(boneHead, data.Skeleton[(int)Kinect.JointType.Head]);
-                SetPosition(boneShoulderCenter, data.Skeleton[(int)Kinect.JointType.ShoulderCenter]);
-                SetPosition(boneShoulderLeft, data.Skeleton[(int)Kinect.JointType.ShoulderLeft]);
-                SetPosition(boneShoulderRight, data.Skeleton[(int)Kinect.JointType.ShoulderRight]);
-                SetPosition(boneSpine, data.Skeleton[(int)Kinect.JointType.Spine]);
-                SetPosition(boneHipCenter, data.Skeleton[(int)Kinect.JointType.HipCenter]);
-                SetPosition(boneHipLeft, data.Skeleton[(int)Kinect.JointType.HipLeft]);
-                SetPosition(boneHipRight, data.Skeleton[(int)Kinect.JointType.HipRight]);
-                SetPosition(boneKneeLeft, data.Skeleton[(int)Kinect.JointType.KneeLeft]);
-                SetPosition(boneKneeRight, data.Skeleton[(int)Kinect.JointType.KneeRight]);
-                SetPosition(boneAnkleLeft, data.Skeleton[(int)Kinect.JointType.AnkleLeft]);
-                SetPosition(boneAnkleRight, data.Skeleton[(int)Kinect.JointType.AnkleRight]);
-                SetPosition(boneFootLeft, data.Skeleton[(int)Kinect.JointType.FootLeft]);
-                SetPosition(boneFootRight, data.Skeleton[(int)Kinect.JointType.FootRight]);
-                SetPosition(boneElbowLeft, data.Skeleton[(int)Kinect.JointType.ElbowLeft]);
-                SetPosition(boneElbowRight, data.Skeleton[(int)Kinect.JointType.ElbowRight]);
-                SetPosition(boneWristLeft, data.Skeleton[(int)Kinect.JointType.WristLeft]);
-                SetPosition(boneWristRight, data.Skeleton[(int)Kinect.JointType.WristRight]);
-                SetPosition(boneHandLeft, data.Skeleton[(int)Kinect.JointType.HandLeft]);
-                SetPosition(boneHandRight, data.Skeleton[(int)Kinect.JointType.HandRight]);
+				SetPosition ( boneHead, data.Skeleton [ ( int ) Kinect.JointType.Head ], skeletonCanvas );
+				SetPosition ( boneShoulderCenter, data.Skeleton [ ( int ) Kinect.JointType.ShoulderCenter ], skeletonCanvas );
+				SetPosition ( boneShoulderLeft, data.Skeleton [ ( int ) Kinect.JointType.ShoulderLeft ], skeletonCanvas );
+				SetPosition ( boneShoulderRight, data.Skeleton [ ( int ) Kinect.JointType.ShoulderRight ], skeletonCanvas );
+				SetPosition ( boneSpine, data.Skeleton [ ( int ) Kinect.JointType.Spine ], skeletonCanvas );
+				SetPosition ( boneHipCenter, data.Skeleton [ ( int ) Kinect.JointType.HipCenter ], skeletonCanvas );
+				SetPosition ( boneHipLeft, data.Skeleton [ ( int ) Kinect.JointType.HipLeft ], skeletonCanvas );
+				SetPosition ( boneHipRight, data.Skeleton [ ( int ) Kinect.JointType.HipRight ], skeletonCanvas );
+				SetPosition ( boneKneeLeft, data.Skeleton [ ( int ) Kinect.JointType.KneeLeft ], skeletonCanvas );
+				SetPosition ( boneKneeRight, data.Skeleton [ ( int ) Kinect.JointType.KneeRight ], skeletonCanvas );
+				SetPosition ( boneAnkleLeft, data.Skeleton [ ( int ) Kinect.JointType.AnkleLeft ], skeletonCanvas );
+				SetPosition ( boneAnkleRight, data.Skeleton [ ( int ) Kinect.JointType.AnkleRight ], skeletonCanvas );
+				SetPosition ( boneFootLeft, data.Skeleton [ ( int ) Kinect.JointType.FootLeft ], skeletonCanvas );
+				SetPosition ( boneFootRight, data.Skeleton [ ( int ) Kinect.JointType.FootRight ], skeletonCanvas );
+				SetPosition ( boneElbowLeft, data.Skeleton [ ( int ) Kinect.JointType.ElbowLeft ], skeletonCanvas );
+				SetPosition ( boneElbowRight, data.Skeleton [ ( int ) Kinect.JointType.ElbowRight ], skeletonCanvas );
+				SetPosition ( boneWristLeft, data.Skeleton [ ( int ) Kinect.JointType.WristLeft ], skeletonCanvas );
+				SetPosition ( boneWristRight, data.Skeleton [ ( int ) Kinect.JointType.WristRight ], skeletonCanvas );
+				SetPosition ( boneHandLeft, data.Skeleton [ ( int ) Kinect.JointType.HandLeft ], skeletonCanvas );
+				SetPosition ( boneHandRight, data.Skeleton [ ( int ) Kinect.JointType.HandRight ], skeletonCanvas );
 
 				MatchTest ();
             };
