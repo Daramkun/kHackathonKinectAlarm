@@ -23,16 +23,16 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="열정적인 아침" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        
+
         <Grid Grid.Row="1" Margin="10,10,-10,-10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="477*"/>
                 <ColumnDefinition Width="889*"/>
             </Grid.ColumnDefinitions>
             <Button Content="Button" HorizontalAlignment="Left" Margin="592,79,-29,0" VerticalAlignment="Top" Height="117" Width="326" Click="Button_Click" Grid.Column="1"/>
-            <ListBox HorizontalAlignment="Left" Height="404" VerticalAlignment="Top" Width="684" Margin="41,52,0,0" Grid.ColumnSpan="2"/>
+            <ListBox HorizontalAlignment="Left" Height="404" VerticalAlignment="Top" Width="366" Margin="41,52,0,0"/>
             <!-- TODO: Application Page layout -->
-            
+
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
