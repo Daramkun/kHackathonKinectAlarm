@@ -79,7 +79,7 @@ namespace KinectAlarm
 
         private void buttonRemoveAlarm_Click(object sender, RoutedEventArgs e)
         {
-            if (AlarmList.SelectedIndex > 0)
+            if (AlarmList.SelectedIndex >= 0)
             {
                 AlarmCollection.removeAlarm(AlarmList.SelectedIndex);
                 AlarmCollection.saveData();
