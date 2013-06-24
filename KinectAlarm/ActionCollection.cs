@@ -60,7 +60,8 @@ namespace KinectAlarm
 
         public static async void SaveData()
         {
-			StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync ( "actionList.dat" );
+			StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync ( "actionList.dat",
+				CreationCollisionOption.ReplaceExisting );
             using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
             {
                 DataWriter writer = new DataWriter(raStream);
