@@ -59,6 +59,7 @@ namespace KinectProvider
                                     Z = joint.Position.Z
                                 };
                             }
+                            break;
                         }
                         else composite.Skeleton = null;
                     }
