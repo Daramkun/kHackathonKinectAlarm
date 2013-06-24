@@ -33,7 +33,7 @@ namespace KinectAlarm
                 StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync("alarmList.dat");
                 IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.Read);
                 DataReader reader = new DataReader(raStream);
-                reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+                reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf16LE;
                 reader.ByteOrder = ByteOrder.LittleEndian;
 
                 await reader.LoadAsync((uint)raStream.Size);
@@ -58,7 +58,7 @@ namespace KinectAlarm
                 CreationCollisionOption.ReplaceExisting);
             IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
             DataWriter writer = new DataWriter(raStream);
-            writer.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+            writer.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf16LE;
             writer.ByteOrder = ByteOrder.LittleEndian;
 
             writer.WriteInt32(alarmList.Count);
