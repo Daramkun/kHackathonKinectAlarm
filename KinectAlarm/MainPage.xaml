@@ -21,11 +21,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="열정적인 아침" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
         
-        <Grid Grid.Row="1">
-            <Button Content="Button" HorizontalAlignment="Left" Margin="279,158,0,0" VerticalAlignment="Top" Height="117" Width="326" Click="Button_Click"/>
+        <Grid Grid.Row="1" Margin="10,10,-10,-10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="477*"/>
+                <ColumnDefinition Width="889*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="592,79,-29,0" VerticalAlignment="Top" Height="117" Width="326" Click="Button_Click" Grid.Column="1"/>
+            <ListBox HorizontalAlignment="Left" Height="404" VerticalAlignment="Top" Width="684" Margin="41,52,0,0" Grid.ColumnSpan="2"/>
             <!-- TODO: Application Page layout -->
             
         </Grid>
@@ -60,6 +65,9 @@
     <common:LayoutAwarePage.BottomAppBar>
         <AppBar>
             <StackPanel Orientation="Horizontal">
+                <Button x:Name="buttonAddAlarm" Style="{StaticResource AddAppBarButtonStyle}" Click="buttonAddAlarm_Click"/>
+                <Button x:Name="buttonRemoveAlarm" Style="{StaticResource RemoveAppBarButtonStyle}" />
+                <Button x:Name="buttonEditAlarm" Style="{StaticResource EditAppBarButtonStyle}"/>
                 <Button x:Name="buttonAddAction" Style="{StaticResource AddActionAppBarButtonStyle}" Click="buttonAddAction_Click" />
             </StackPanel>
         </AppBar>

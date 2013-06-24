@@ -58,5 +58,10 @@ namespace KinectAlarm
 		{
 			Frame.Navigate ( typeof ( AddActionPage ) );
 		}
+
+        private void buttonAddAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddAlarmPage));
+        }
 	}
 }

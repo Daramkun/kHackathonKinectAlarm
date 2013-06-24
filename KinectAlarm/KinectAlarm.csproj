@@ -114,6 +114,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddAlarmPage.xaml.cs">
+      <DependentUpon>AddAlarmPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
@@ -149,6 +152,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="AddActionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddAlarmPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
