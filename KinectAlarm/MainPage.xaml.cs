@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -82,6 +83,13 @@ namespace KinectAlarm
             if (AlarmList.SelectedIndex >= 0)
             {
                 AlarmCollection.removeAlarm(AlarmList.SelectedIndex);
+				foreach ( var cur in BackgroundTaskRegistration.AllTasks )
+				{
+					if ( cur.Value.Name == AlarmCollection.AlarmList [ AlarmList.SelectedIndex ].alarmMemo )
+					{
+						cur.Value.Unregister ( true );
+					}
+				}
                 AlarmCollection.saveData();
             }
         }
