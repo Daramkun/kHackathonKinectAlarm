@@ -17,7 +17,10 @@ namespace KinectAlarm
         {
             if (inputDateType == "WeekDay")
                 dateType = DateType.WeekDay;
-            else if(inputDateType = "
+            else if (inputDateType == "WeekEnd")
+                dateType = DateType.Weekend;
+            else if (inputDateType == "DayByDay")
+                dateType = DateType.DayByDay;
 
             timeForAlarm = new TimeSpan(h, m, 0);
             alarmMemo = memo;

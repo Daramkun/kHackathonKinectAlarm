@@ -34,13 +34,27 @@ namespace KinectAlarm
                     int dataLength = reader.ReadInt32();
                     for (int i = 0; i < dataLength; i++)
                     {
-                        Alarm alarm = new Alarm(reader.ReadString(255), reader.ReadInt32(), reader.ReadInt32(), reader.ReadString(255));\
+                        Alarm alarm = new Alarm(reader.ReadString(255), reader.ReadInt32(), reader.ReadInt32(), reader.ReadString(255));
                         alarmList.Add(alarm);
                     }
                 }
             }
             catch
             {
+            }
+        }
+
+        public static async void saveData()
+        {
+            StorageFile storageFile = await StorageFile.CreateStreamedFileAsync("alarmList.dat", null, null);
+            using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
+            {
+                DataWriter writer = new DataWriter(raStream);
+                writer.WriteInt32(alarmList.Count);
+                foreach (Alarm a in alarmList)
+                {
+                   
+                }
             }
         }
     }
