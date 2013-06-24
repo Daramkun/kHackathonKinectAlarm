@@ -108,6 +108,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionCollection.cs" />
     <Compile Include="AddActionPage.xaml.cs">
       <DependentUpon>AddActionPage.xaml</DependentUpon>
     </Compile>

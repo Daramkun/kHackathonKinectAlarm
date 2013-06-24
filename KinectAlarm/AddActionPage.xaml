@@ -98,7 +98,7 @@
     </Grid>
     
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar>
+        <AppBar IsOpen="True" IsSticky="True">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="addButton" Style="{StaticResource AddAppBarButtonStyle}" Click="addButton_Click" />
                 <Button x:Name="resetButton" Style="{StaticResource ResetAppBarButtonStyle}" Click="resetButton_Click" />
