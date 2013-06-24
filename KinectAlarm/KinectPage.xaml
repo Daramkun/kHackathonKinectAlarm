@@ -54,5 +54,6 @@
                 <Ellipse x:Name="boneHandRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="DarkTurquoise" />
             </Canvas>
         </Canvas>
+        <TextBlock x:Name="textNotice" TextAlignment="Center" />
     </Grid>
 </Page>

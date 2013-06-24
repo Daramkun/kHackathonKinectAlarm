@@ -48,5 +48,10 @@ namespace KinectAlarm
 		protected override void SaveState ( Dictionary<String, Object> pageState )
 		{
 		}
+
+		private void Button_Click ( object sender, RoutedEventArgs e )
+		{
+			Frame.Navigate ( typeof ( KinectPage ) );
+		}
 	}
 }
