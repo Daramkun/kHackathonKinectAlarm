@@ -80,6 +80,7 @@ namespace KinectAlarm
         private void buttonRemoveAlarm_Click(object sender, RoutedEventArgs e)
         {
             AlarmCollection.removeAlarm(AlarmList.SelectedIndex);
+            AlarmCollection.saveData();
         }
 	}
 }
