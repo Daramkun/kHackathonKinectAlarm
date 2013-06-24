@@ -112,7 +112,7 @@
     </Grid>
 
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar>
+        <AppBar IsOpen="True" IsSticky="True">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="save" Style="{StaticResource SaveAppBarButtonStyle}" Click="save_Click"/>
             </StackPanel>
