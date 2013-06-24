@@ -24,11 +24,6 @@ namespace KinectAlarm
             actionList.RemoveAt(index);
         }
 
-        public static void RemoveAction(int index)
-        {
-            actionList.RemoveAt(index);
-        }
-
 		public static ObservableCollection<Kinect.Joint []> ActionList { get { return actionList; } }
 
         public static async void LoadData()
