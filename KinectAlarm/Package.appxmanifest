@@ -23,9 +23,9 @@
       <Extensions>
         <Extension Category="windows.backgroundTasks" EntryPoint="AlarmBackTask.AlarmTask">
           <BackgroundTasks>
-            <Task Type="audio" />
             <Task Type="timer" />
             <Task Type="systemEvent" />
+            <Task Type="audio" />
           </BackgroundTasks>
         </Extension>
       </Extensions>

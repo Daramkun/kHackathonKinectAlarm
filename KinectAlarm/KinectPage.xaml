@@ -9,6 +9,28 @@
     mc:Ignorable="d" Loaded="Page_Loaded_1">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Canvas Opacity="0.5" x:Name="patternCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Ellipse x:Name="patternHead" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Red" />
+            <Ellipse x:Name="patternShoulderLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Blue" />
+            <Ellipse x:Name="patternShoulderRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Blue" />
+            <Ellipse x:Name="patternShoulderCenter" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Blue" />
+            <Ellipse x:Name="patternSpine" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Brown" />
+            <Ellipse x:Name="patternHipCenter" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Orange" />
+            <Ellipse x:Name="patternHipLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Orange" />
+            <Ellipse x:Name="patternHipRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Orange" />
+            <Ellipse x:Name="patternKneeLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+            <Ellipse x:Name="patternKneeRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+            <Ellipse x:Name="patternAnkleLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+            <Ellipse x:Name="patternAnkleRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+            <Ellipse x:Name="patternFootLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+            <Ellipse x:Name="patternFootRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+            <Ellipse x:Name="patternElbowLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+            <Ellipse x:Name="patternElbowRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+            <Ellipse x:Name="patternWristLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+            <Ellipse x:Name="patternWristRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+            <Ellipse x:Name="patternHandLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+            <Ellipse x:Name="patternHandRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+        </Canvas>
         <Canvas x:Name="skeletonCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Ellipse x:Name="boneHead" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Red" />
             <Ellipse x:Name="boneShoulderLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Blue" />
