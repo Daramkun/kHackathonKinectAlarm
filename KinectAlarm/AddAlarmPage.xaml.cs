@@ -61,7 +61,7 @@ namespace KinectAlarm
 			var builder = new BackgroundTaskBuilder ();
 			builder.Name = alarmMemo.Text;
 			builder.TaskEntryPoint = "AlarmBackTask.AlarmTask";
-			builder.SetTrigger ( new TimeTrigger ( 0, false ) );
+			builder.SetTrigger ( new TimeTrigger ( 15, false ) );
 			builder.Register ();
 
             AlarmCollection.saveData(() => { Frame.GoBack(); });
