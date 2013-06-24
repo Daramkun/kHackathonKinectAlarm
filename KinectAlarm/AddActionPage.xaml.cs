@@ -134,8 +134,7 @@ namespace KinectAlarm
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             ActionCollection.AddAction(currentAction);
-            ActionCollection.SaveData();
-            Frame.GoBack();
+            ActionCollection.SaveData(() => { Frame.GoBack(); });
         }
 	}
 }

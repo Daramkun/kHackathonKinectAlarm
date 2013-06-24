@@ -66,7 +66,8 @@ namespace KinectAlarm
 		}
 
 		private void listAction_SelectionChanged ( object sender, SelectionChangedEventArgs e )
-		{
+        {
+            if (listAction.SelectedIndex < 0) return;
 			Kinect.Joint [] data = ActionCollection.ActionList [ listAction.SelectedIndex ];
 
 			SetPosition ( boneHead, data [ ( int ) Kinect.JointType.Head ] );

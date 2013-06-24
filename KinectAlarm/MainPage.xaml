@@ -66,7 +66,7 @@
         <AppBar>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="buttonAddAlarm" Style="{StaticResource AddAlarmAppBarButtonStyle}" Click="buttonAddAlarm_Click"/>
-                <Button x:Name="buttonRemoveAlarm" Style="{StaticResource RemoveAlarmAppBarButtonStyle}" />
+                <Button x:Name="buttonRemoveAlarm" Style="{StaticResource RemoveAlarmAppBarButtonStyle}" Click="buttonRemoveAlarm_Click" />
                 <Button x:Name="buttonEditAlarm" Style="{StaticResource EditAlarmAppBarButtonStyle}"/>
                 <Button x:Name="buttonAddAction" Style="{StaticResource AddActionAppBarButtonStyle}" Click="buttonAddAction_Click" />
                 <Button x:Name="buttonRemoveAction" Style="{StaticResource DeleteAppBarButtonStyle}" Click="buttonRemoveAction_Click"/>

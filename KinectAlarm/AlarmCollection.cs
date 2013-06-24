@@ -31,45 +31,50 @@ namespace KinectAlarm
             try
             {
                 StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync("alarmList.dat");
-                using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.Read))
+                IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.Read);
+                DataReader reader = new DataReader(raStream);
+                reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+                reader.ByteOrder = ByteOrder.LittleEndian;
+
+                await reader.LoadAsync((uint)raStream.Size);
+
+                int dataLength = reader.ReadInt32();
+                for (int i = 0; i < dataLength; i++)
                 {
-                    DataReader reader = new DataReader(raStream);
-
-                    reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
-                    reader.ByteOrder = ByteOrder.LittleEndian;
-
-                    int dataLength = reader.ReadInt32();
-                    for (int i = 0; i < dataLength; i++)
-                    {
-                        Alarm alarm = new Alarm(reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32(), reader.ReadString(255));
-                        alarmList.Add(alarm);
-                    }
+                    Alarm alarm = new Alarm(reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32(), reader.ReadString(128));
+                    alarmList.Add(alarm);
                 }
+
+                raStream.Dispose();
             }
             catch
             {
             }
         }
 
-        public static async void saveData()
+        public static async void saveData(Action finishAction = null)
         {
             StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync("alarmList.dat",
                 CreationCollisionOption.ReplaceExisting);
-            using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
-            {
-                DataWriter writer = new DataWriter(raStream);
-                writer.WriteInt32(alarmList.Count);
-                foreach (Alarm a in alarmList)
-                {
-                    writer.WriteInt32((int)a.dateType);
-                    writer.WriteInt32(a.timeForAlarm.Hours);
-                    writer.WriteInt32(a.timeForAlarm.Minutes);
-                    writer.WriteString(a.alarmMemo);
-                }
+            IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+            DataWriter writer = new DataWriter(raStream);
+            writer.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+            writer.ByteOrder = ByteOrder.LittleEndian;
 
-                await writer.FlushAsync();
-                await writer.StoreAsync();
+            writer.WriteInt32(alarmList.Count);
+            foreach (Alarm a in alarmList)
+            {
+                writer.WriteInt32((int)a.dateType);
+                writer.WriteInt32(a.timeForAlarm.Hours);
+                writer.WriteInt32(a.timeForAlarm.Minutes);
+                writer.WriteString(a.alarmMemo.PadRight(128));
             }
+
+            await writer.FlushAsync();
+            await writer.StoreAsync();
+            raStream.Dispose();
+            if (finishAction != null)
+                finishAction();
         }
     }
 }

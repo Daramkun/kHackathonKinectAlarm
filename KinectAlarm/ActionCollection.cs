@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,44 +32,44 @@ namespace KinectAlarm
             actionList.Clear();
             try
             {
-				StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync ( "actionList.dat" );
-                using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.Read))
+                StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync("actionList.dat");
+                IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.Read);
+                DataReader reader = new DataReader(raStream);
+                reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+                reader.ByteOrder = ByteOrder.LittleEndian;
+
+                await reader.LoadAsync((uint)raStream.Size);
+
+                int dataLength = reader.ReadInt32();
+                for (int i = 0; i < dataLength; i++)
                 {
-					DataReader reader = new DataReader ( raStream );
-					reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
-					reader.ByteOrder = ByteOrder.LittleEndian;
-
-					await reader.LoadAsync ( (uint)raStream.Size );
-
-					int dataLength = reader.ReadInt32();
-                    for (int i = 0; i < dataLength; i++)
+                    Kinect.Joint[] action = new Kinect.Joint[20];
+                    for (int j = 0; j < 20; j++)
                     {
-                        Kinect.Joint[] action = new Kinect.Joint[20];
-                        for (int j = 0; j < 20; j++)
-                        {
-                            Kinect.Joint joint = new Kinect.Joint();
-                            joint.JointType = (Kinect.JointType)reader.ReadByte();
-                            joint.X = reader.ReadSingle();
-                            joint.Y = reader.ReadSingle();
-                            joint.Z = reader.ReadSingle();
-                            action[j] = joint;
-                        }
-                        actionList.Add(action);
+                        Kinect.Joint joint = new Kinect.Joint();
+                        joint.JointType = (Kinect.JointType)reader.ReadByte();
+                        joint.X = reader.ReadSingle();
+                        joint.Y = reader.ReadSingle();
+                        joint.Z = reader.ReadSingle();
+                        action[j] = joint;
                     }
+                    actionList.Add(action);
                 }
+                raStream.Dispose();
             }
             catch { }
         }
 
-        public static async void SaveData()
+        public static async void SaveData(Action finishAction = null)
         {
-			StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync ( "actionList.dat",
-				CreationCollisionOption.ReplaceExisting );
-            using (IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
+            try
             {
+                StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync("actionList.dat",
+                    CreationCollisionOption.ReplaceExisting);
+                IRandomAccessStream raStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
                 DataWriter writer = new DataWriter(raStream);
-				writer.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
-				writer.ByteOrder = ByteOrder.LittleEndian;
+                writer.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+                writer.ByteOrder = ByteOrder.LittleEndian;
 
                 writer.WriteInt32(actionList.Count);
                 foreach (Kinect.Joint[] action in actionList)
@@ -82,8 +83,12 @@ namespace KinectAlarm
                     }
                 }
                 await writer.FlushAsync();
-				await writer.StoreAsync ();
+                await writer.StoreAsync();
+                raStream.Dispose();
             }
+            catch (Exception ex) { Debug.WriteLine(ex); }
+            if (finishAction != null)
+                finishAction();
         }
     }
 }

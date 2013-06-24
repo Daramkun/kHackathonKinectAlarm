@@ -76,5 +76,10 @@ namespace KinectAlarm
             AlarmCollection.loadData();
             ActionCollection.LoadData();
         }
+
+        private void buttonRemoveAlarm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 	}
 }
