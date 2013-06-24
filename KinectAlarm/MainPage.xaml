@@ -69,7 +69,7 @@
                 <Button x:Name="buttonRemoveAlarm" Style="{StaticResource RemoveAlarmAppBarButtonStyle}" />
                 <Button x:Name="buttonEditAlarm" Style="{StaticResource EditAlarmAppBarButtonStyle}"/>
                 <Button x:Name="buttonAddAction" Style="{StaticResource AddActionAppBarButtonStyle}" Click="buttonAddAction_Click" />
-                <Button x:Name="buttonRemoveAction" Style="{StaticResource RemoveAppBarButtonStyle}"/>
+                <Button x:Name="buttonRemoveAction" Style="{StaticResource DeleteAppBarButtonStyle}" Click="buttonRemoveAction_Click"/>
             </StackPanel>
         </AppBar>
     </common:LayoutAwarePage.BottomAppBar>
