@@ -28,10 +28,14 @@ namespace KinectProvider
 
 			new Thread ( () =>
 			{
-				if ( KinectSensor.KinectSensors.Count <= 0 )
+				if ( KinectSensor.KinectSensors.Count > 0 )
 				{
 					kinectSensor = KinectSensor.KinectSensors [ 0 ];
 					SetupKinectSensor ();
+				}
+				else
+				{
+					kinectSensor = null;
 				}
 			} ).Start ();
 		}
