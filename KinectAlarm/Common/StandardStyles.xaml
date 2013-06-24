@@ -412,6 +412,26 @@
         <Setter Property="AutomationProperties.Name" Value="Reset"/>
         <Setter Property="Content" Value="&#xE117;"/>
     </Style>
+    <Style x:Key="RemoveActionAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="RemoveActionAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Remove Action"/>
+        <Setter Property="Content" Value="&#xE108;"/>
+    </Style>
+    <Style x:Key="RemoveAlarmAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="RemoveAlarmAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Remove Alarm"/>
+        <Setter Property="Content" Value="&#xE108;"/>
+    </Style>
+    <Style x:Key="AddAlarmAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="AddAlarmAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Add Alarm"/>
+        <Setter Property="Content" Value="&#xE109;"/>
+    </Style>
+    <Style x:Key="EditAlarmAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="EditAlarmAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Edit Alarm"/>
+        <Setter Property="Content" Value="&#xE104;"/>
+    </Style>
 
     <!-- 
         Button 및 ToggleButton에 사용할 수 있는 표준 AppBarButton 스타일
@@ -442,7 +462,7 @@
     </Style>
     <Style x:Key="EditAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="EditAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="EditAlarm"/>
+        <Setter Property="AutomationProperties.Name" Value="Edit"/>
         <Setter Property="Content" Value="&#xE104;"/>
     </Style>
     <Style x:Key="SaveAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
@@ -462,12 +482,12 @@
     </Style>
     <Style x:Key="RemoveAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="RemoveAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="RemoveAlarm"/>
+        <Setter Property="AutomationProperties.Name" Value="Remove"/>
         <Setter Property="Content" Value="&#xE108;"/>
     </Style>
     <Style x:Key="AddAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="AddAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="AddAlarm"/>
+        <Setter Property="AutomationProperties.Name" Value="Add"/>
         <Setter Property="Content" Value="&#xE109;"/>
     </Style>
     <Style x:Key="NoAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
