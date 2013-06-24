@@ -13,72 +13,60 @@ namespace KinectProvider
 {
 	public class KinectProviderService : IKinectProviderService
 	{
-		static KinectSensor kinectSensor;
-
-		static KinectProviderService ()
-		{
-			KinectSensor.KinectSensors.StatusChanged += ( object sender, StatusChangedEventArgs e ) =>
-			{
-				if ( e.Status == KinectStatus.Connected )
-				{
-					kinectSensor = e.Sensor;
-					SetupKinectSensor ();
-				}
-			};
-
-			new Thread ( () =>
-			{
-				if ( KinectSensor.KinectSensors.Count > 0 )
-				{
-					kinectSensor = KinectSensor.KinectSensors [ 0 ];
-					SetupKinectSensor ();
-				}
-				else
-				{
-					kinectSensor = null;
-				}
-			} ).Start ();
-		}
-
-		private static void SetupKinectSensor ()
-		{
-			kinectSensor.SkeletonStream.Enable ();
-			kinectSensor.ColorStream.Enable ();
-		}
-
 		public Kinect GetData ( Kinect composite )
-		{
-			composite.IsKinectConnected = ( kinectSensor != null );
+        {
+            KinectSensor kinectSensor = null;
+            if (KinectSensor.KinectSensors.Count > 0)
+            {
+                kinectSensor = KinectSensor.KinectSensors[0];
+                if (kinectSensor != null)
+                {
+                    if (!(kinectSensor.Status == KinectStatus.Initializing ||
+                        kinectSensor.Status == KinectStatus.Connected))
+                        kinectSensor = null;
+                    while (kinectSensor.Status != KinectStatus.Connected) ;
+                    kinectSensor.SkeletonStream.Enable();
+                    kinectSensor.ColorStream.Enable();
+                    kinectSensor.Start();
+                }
+            }
+            else
+            {
+                if (kinectSensor != null)
+                    kinectSensor.Stop();
+                kinectSensor = null;
+            }
+
 			if ( kinectSensor != null )
 			{
-				using ( ColorImageFrame imageFrame = kinectSensor.ColorStream.OpenNextFrame ( 0 ) )
-				{
-					byte [] pixelData = new byte [ imageFrame.Width * imageFrame.Height * imageFrame.BytesPerPixel ];
-					imageFrame.CopyPixelDataTo ( pixelData );
-					composite.ImageFrame = pixelData;
-				}
-
+                composite.IsConnected = true;
 				using ( SkeletonFrame skeletonFrame = kinectSensor.SkeletonStream.OpenNextFrame ( 0 ) )
 				{
-					Skeleton [] skeletons = new Skeleton [ 6 ];
+                    Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
 					skeletonFrame.CopySkeletonDataTo ( skeletons );
-					Skeleton skeleton = skeletons [ 0 ];
-					composite.Skeleton = new Kinect.Joint [ 20 ];
-					foreach ( Joint joint in skeleton.Joints )
-					{
-						composite.Skeleton [ 0 ] = new Kinect.Joint ()
-						{
-							JointType = ( Kinect.JointType ) joint.JointType,
-							X = joint.Position.X,
-							Y = joint.Position.Y,
-							Z = joint.Position.Z
-						};
-					}
+                    foreach (Skeleton skeleton in skeletons)
+                    {
+                        if (skeleton.TrackingState == SkeletonTrackingState.Tracked)
+                        {
+                            composite.Skeleton = new Kinect.Joint[20];
+                            foreach (Joint joint in skeleton.Joints)
+                            {
+                                composite.Skeleton[(int)joint.JointType] = new Kinect.Joint()
+                                {
+                                    JointType = (Kinect.JointType)joint.JointType,
+                                    X = joint.Position.X,
+                                    Y = joint.Position.Y,
+                                    Z = joint.Position.Z
+                                };
+                            }
+                        }
+                        else composite.Skeleton = null;
+                    }
 				}
 			}
 			else
 			{
-				composite.ImageFrame = null;
+                composite.IsConnected = false;
 				composite.Skeleton = null;
 			}
 			return composite;

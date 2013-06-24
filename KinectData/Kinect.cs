@@ -9,14 +9,12 @@ namespace KinectData
 	[DataContract]
     public class Kinect
     {
-		[DataMember]
-		public bool IsKinectConnected { get; set; }
-		[DataMember]
-		public byte [] ImageFrame { get; set; }
+        [DataMember]
+        public bool IsConnected { get; set; }
 		[DataMember]
 		public Joint [] Skeleton { get; set; }
 
-		public enum JointType
+		public enum JointType : byte
 		{
 			HipCenter = 0,
 			Spine = 1,
