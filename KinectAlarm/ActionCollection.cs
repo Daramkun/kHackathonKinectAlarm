@@ -1,6 +1,7 @@
 ﻿using KinectData;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace KinectAlarm
 {
     public static class ActionCollection
     {
-        static List<Kinect.Joint[]> actionList = new List<Kinect.Joint[]>();
+		static ObservableCollection<Kinect.Joint []> actionList = new ObservableCollection<Kinect.Joint []> ();
 
         public static void AddAction(Kinect.Joint[] action)
         {
@@ -23,7 +24,7 @@ namespace KinectAlarm
             actionList.RemoveAt(index);
         }
 
-        public static IReadOnlyList<Kinect.Joint[]> ActionList { get { return actionList; } }
+		public static ObservableCollection<Kinect.Joint []> ActionList { get { return actionList; } }
 
         public static async void LoadData()
         {

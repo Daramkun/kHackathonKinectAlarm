@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KinectData;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // 기본 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234237에 나와 있습니다.
 
@@ -24,6 +26,7 @@ namespace KinectAlarm
 		public RemoveActionPage ()
 		{
 			this.InitializeComponent ();
+			listAction.ItemsSource = ActionCollection.ActionList;
 		}
 
 		/// <summary>
@@ -47,6 +50,45 @@ namespace KinectAlarm
 		/// <param name="pageState">serializable 상태로 채워질 빈 사전입니다.</param>
 		protected override void SaveState ( Dictionary<String, Object> pageState )
 		{
+		}
+
+		private void buttonRemove_Click ( object sender, RoutedEventArgs e )
+		{
+			if ( listAction.SelectedIndex < 0 ) return;
+			ActionCollection.RemoveAction ( listAction.SelectedIndex );
+			ActionCollection.SaveData ();
+		}
+
+		private void SetPosition ( Ellipse eliipse, Kinect.Joint joint )
+		{
+			Canvas.SetLeft ( eliipse, joint.X * 300 + skeletonCanvas.ActualWidth / 2 );
+			Canvas.SetTop ( eliipse, -joint.Y * 300 + skeletonCanvas.ActualHeight / 2 );
+		}
+
+		private void listAction_SelectionChanged ( object sender, SelectionChangedEventArgs e )
+		{
+			Kinect.Joint [] data = ActionCollection.ActionList [ listAction.SelectedIndex ];
+
+			SetPosition ( boneHead, data [ ( int ) Kinect.JointType.Head ] );
+			SetPosition ( boneShoulderCenter, data [ ( int ) Kinect.JointType.ShoulderCenter ] );
+			SetPosition ( boneShoulderLeft, data [ ( int ) Kinect.JointType.ShoulderLeft ] );
+			SetPosition ( boneShoulderRight, data [ ( int ) Kinect.JointType.ShoulderRight ] );
+			SetPosition ( boneSpine, data [ ( int ) Kinect.JointType.Spine ] );
+			SetPosition ( boneHipCenter, data [ ( int ) Kinect.JointType.HipCenter ] );
+			SetPosition ( boneHipLeft, data [ ( int ) Kinect.JointType.HipLeft ] );
+			SetPosition ( boneHipRight, data [ ( int ) Kinect.JointType.HipRight ] );
+			SetPosition ( boneKneeLeft, data [ ( int ) Kinect.JointType.KneeLeft ] );
+			SetPosition ( boneKneeRight, data [ ( int ) Kinect.JointType.KneeRight ] );
+			SetPosition ( boneAnkleLeft, data [ ( int ) Kinect.JointType.AnkleLeft ] );
+			SetPosition ( boneAnkleRight, data [ ( int ) Kinect.JointType.AnkleRight ] );
+			SetPosition ( boneFootLeft, data [ ( int ) Kinect.JointType.FootLeft ] );
+			SetPosition ( boneFootRight, data [ ( int ) Kinect.JointType.FootRight ] );
+			SetPosition ( boneElbowLeft, data [ ( int ) Kinect.JointType.ElbowLeft ] );
+			SetPosition ( boneElbowRight, data [ ( int ) Kinect.JointType.ElbowRight ] );
+			SetPosition ( boneWristLeft, data [ ( int ) Kinect.JointType.WristLeft ] );
+			SetPosition ( boneWristRight, data [ ( int ) Kinect.JointType.WristRight ] );
+			SetPosition ( boneHandLeft, data [ ( int ) Kinect.JointType.HandLeft ] );
+			SetPosition ( boneHandRight, data [ ( int ) Kinect.JointType.HandRight ] );
 		}
 	}
 }

@@ -38,13 +38,35 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="listAction" Margin="5,5,5,5">
+            <ListBox x:Name="listAction" Margin="5,5,5,5" SelectionChanged="listAction_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="동작" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <Canvas x:Name="skeletonCanvas" Grid.Column="1" Margin="5,5,5,5">
+                <Ellipse x:Name="boneHead" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Red" />
+                <Ellipse x:Name="boneShoulderLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Blue" />
+                <Ellipse x:Name="boneShoulderRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Blue" />
+                <Ellipse x:Name="boneShoulderCenter" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Blue" />
+                <Ellipse x:Name="boneSpine" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Brown" />
+                <Ellipse x:Name="boneHipCenter" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Orange" />
+                <Ellipse x:Name="boneHipLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Orange" />
+                <Ellipse x:Name="boneHipRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Orange" />
+                <Ellipse x:Name="boneKneeLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+                <Ellipse x:Name="boneKneeRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+                <Ellipse x:Name="boneAnkleLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+                <Ellipse x:Name="boneAnkleRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+                <Ellipse x:Name="boneFootLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+                <Ellipse x:Name="boneFootRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+                <Ellipse x:Name="boneElbowLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+                <Ellipse x:Name="boneElbowRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Green" />
+                <Ellipse x:Name="boneWristLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+                <Ellipse x:Name="boneWristRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="Magenta" />
+                <Ellipse x:Name="boneHandLeft" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+                <Ellipse x:Name="boneHandRight" Canvas.Left="-25" Canvas.Top="-25" Width="50" Height="50" Fill="DarkTurquoise" />
+            </Canvas>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
@@ -80,7 +102,7 @@
 
     <common:LayoutAwarePage.BottomAppBar>
         <AppBar IsOpen="True" IsSticky="True">
-            <Button Style="{StaticResource RemoveActionAppBarButtonStyle}" />
+            <Button x:Name="buttonRemove" Style="{StaticResource RemoveActionAppBarButtonStyle}" Click="buttonRemove_Click" />
         </AppBar>
     </common:LayoutAwarePage.BottomAppBar>
 </common:LayoutAwarePage>
