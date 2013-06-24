@@ -57,7 +57,7 @@
     </Grid>
 
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar>
+        <AppBar Background="Black">
             <StackPanel Orientation="Horizontal">
                 
             </StackPanel>

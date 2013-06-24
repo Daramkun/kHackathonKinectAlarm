@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="KinectAlarm.KinectPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KinectAlarm"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:alarm="using:KinectAlarm.Common"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Canvas x:Name="skeletonCanvas">
+            <Canvas x:Name="innerCanvas">
+                <Canvas.Resources>
+                    <alarm:MultiplyConverter x:Key="MultiplyConverter" />
+                </Canvas.Resources>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform x:Name="translate">
+                            <TranslateTransform.X>
+                                <Binding ElementName="skeletonCanvas" Path="ActualWidth" Converter="{StaticResource MultiplyConverter}" ConverterParameter="0.5" />
+                            </TranslateTransform.X>
+                            <TranslateTransform.Y>
+                                <Binding ElementName="skeletonCanvas" Path="ActualHeight" Converter="{StaticResource MultiplyConverter}" ConverterParameter="0.4" />
+                            </TranslateTransform.Y>
+                        </TranslateTransform>
+
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="{Binding ElementName=translate, Path=X}"
+								CenterY="{Binding ElementName=translate,Path=Y}">
+
+                        </ScaleTransform>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+
+                <Ellipse x:Name="boneHead" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Red" />
+                <Ellipse x:Name="boneShoulderLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Blue" />
+                <Ellipse x:Name="boneShoulderRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Blue" />
+                <Ellipse x:Name="boneShoulderCenter" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Blue" />
+                <Ellipse x:Name="boneSpine" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Brown" />
+                <Ellipse x:Name="boneHipCenter" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Orange" />
+                <Ellipse x:Name="boneHipLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Orange" />
+                <Ellipse x:Name="boneHipRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Orange" />
+                <Ellipse x:Name="boneKneeLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Green" />
+                <Ellipse x:Name="boneKneeRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Green" />
+                <Ellipse x:Name="boneAnkleLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Magenta" />
+                <Ellipse x:Name="boneAnkleRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Magenta" />
+                <Ellipse x:Name="boneFootLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="DarkTurquoise" />
+                <Ellipse x:Name="boneFootRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="DarkTurquoise" />
+                <Ellipse x:Name="boneElbowLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Green" />
+                <Ellipse x:Name="boneElbowRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Green" />
+                <Ellipse x:Name="boneWristLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Magenta" />
+                <Ellipse x:Name="boneWristRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="Magenta" />
+                <Ellipse x:Name="boneHandLeft" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="DarkTurquoise" />
+                <Ellipse x:Name="boneHandRight" Canvas.Left="-10" Canvas.Top="-10" Width="10" Height="10" Fill="DarkTurquoise" />
+            </Canvas>
+        </Canvas>
+    </Grid>
+</Page>
