@@ -62,8 +62,8 @@
             </Canvas>
 
             <TextBlock Text="가운데에 서서 남은 시간이 0이 되기 전에 동작을 취해 주세요." Margin="5,5,5,5" VerticalAlignment="Top" TextAlignment="Center" FontSize="16" />
+            <TextBlock x:Name="textBoxCounter" Text="10" VerticalAlignment="Center" TextAlignment="Center" FontSize="128" />
             <TextBlock x:Name="textNotice" TextAlignment="Center" Margin="0,128,0,0" VerticalAlignment="Center" Text="키넥트 준비중..." FontSize="24" />
-            <TextBlock x:Name="textBoxCounter" Text="5" VerticalAlignment="Center" TextAlignment="Center" FontSize="128" />
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
@@ -96,4 +96,13 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
     </Grid>
+    
+    <common:LayoutAwarePage.BottomAppBar>
+        <AppBar>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="addButton" Style="{StaticResource AddAppBarButtonStyle}" Click="addButton_Click" />
+                <Button x:Name="resetButton" Style="{StaticResource ResetAppBarButtonStyle}" Click="resetButton_Click" />
+            </StackPanel>
+        </AppBar>
+    </common:LayoutAwarePage.BottomAppBar>
 </common:LayoutAwarePage>

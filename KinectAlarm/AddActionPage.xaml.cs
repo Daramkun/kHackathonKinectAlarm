@@ -26,6 +26,8 @@ namespace KinectAlarm
 		DispatcherTimer counterTimer = new DispatcherTimer ();
 		bool isKinectConnected = false;
 
+        Kinect.Joint[] currentAction;
+
 		public AddActionPage ()
 		{
 			this.InitializeComponent ();
@@ -62,25 +64,27 @@ namespace KinectAlarm
 				if ( data == null )
 				{
 					textNotice.Text = "키넥트 데이터가 소실되었습니다.";
-					isKinectConnected = true;
+					isKinectConnected = false;
 					return;
 				}
 				if ( !data.IsConnected )
 				{
 					textNotice.Text = "키넥트가 연결되지 않았습니다.";
-					isKinectConnected = true;
+					isKinectConnected = false;
 					return;
 				}
 				if ( data.Skeleton == null || data.Skeleton.Length == 0 )
 				{
 					textNotice.Text = "사람을 찾지 못했습니다.";
-					isKinectConnected = true;
+					isKinectConnected = false;
 					return;
 				}
 				textNotice.Text = "";
 				isKinectConnected = true;
 
 				if ( textBoxCounter.Text == "0" ) return;
+
+                currentAction = data.Skeleton;
 
 				SetPosition ( boneHead, data.Skeleton [ ( int ) Kinect.JointType.Head ] );
 				SetPosition ( boneShoulderCenter, data.Skeleton [ ( int ) Kinect.JointType.ShoulderCenter ] );
@@ -116,5 +120,15 @@ namespace KinectAlarm
 			};
 			counterTimer.Start ();
 		}
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxCounter.Text = "10";
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 	}
 }

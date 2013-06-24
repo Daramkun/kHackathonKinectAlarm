@@ -407,6 +407,11 @@
         <Setter Property="AutomationProperties.Name" Value="Add Action"/>
         <Setter Property="Content" Value="&#xE118;"/>
     </Style>
+    <Style x:Key="ResetAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="ResetAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Reset"/>
+        <Setter Property="Content" Value="&#xE117;"/>
+    </Style>
 
     <!-- 
         Button 및 ToggleButton에 사용할 수 있는 표준 AppBarButton 스타일
@@ -617,7 +622,6 @@
         <Setter Property="Content" Value="&#xE127;"/>
     </Style>
 
-    <!--
     <Style x:Key="WorldAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="WorldAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="World"/>
@@ -729,10 +733,6 @@
         <Setter Property="Content" Value="&#xE13D;"/>
     </Style>
 
-    -->
-
-    <!--
-
     <Style x:Key="RenameAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="RenameAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Rename"/>
@@ -833,9 +833,7 @@
         <Setter Property="AutomationProperties.Name" Value="Webcam"/>
         <Setter Property="Content" Value="&#xE156;"/>
     </Style>
-    -->
 
-    <!--
     <Style x:Key="PicturesAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="PicturesAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Pictures"/>
@@ -931,9 +929,7 @@
         <Setter Property="AutomationProperties.Name" Value="Hide Bcc"/>
         <Setter Property="Content" Value="&#xE16A;"/>
     </Style>
-    -->
-
-    <!--
+    
     <Style x:Key="CutAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="CutAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Cut"/>
@@ -1040,10 +1036,6 @@
         <Setter Property="Content" Value="&#xE185;"/>
     </Style>
 
-    -->
-
-    <!--
-
     <Style x:Key="FontColorAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="FontColorAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Font Color"/>
@@ -1134,9 +1126,7 @@
         <Setter Property="AutomationProperties.Name" Value="Italic"/>
         <Setter Property="Content" Value="&#xE199;"/>
     </Style>
-    -->
 
-    <!--
     <Style x:Key="UnderlineAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="UnderlineAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Underline"/>
@@ -1237,9 +1227,7 @@
         <Setter Property="AutomationProperties.Name" Value="Font Size"/>
         <Setter Property="Content" Value="&#xE1C8;"/>
     </Style>
-    -->
 
-    <!--
     <Style x:Key="CellphoneAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="CellphoneAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Cellphone"/>
@@ -1320,9 +1308,7 @@
         <Setter Property="AutomationProperties.Name" Value="Back to Window"/>
         <Setter Property="Content" Value="&#xE1D8;"/>
     </Style>
-    -->
 
-    <!--
     <Style x:Key="FullScreenAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="FullScreenAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Full Screen"/>
@@ -1403,8 +1389,6 @@
         <Setter Property="AutomationProperties.Name" Value="Four Bars"/>
         <Setter Property="Content" Value="&#xE1E9;"/>
     </Style>
-
-    -->
 
     <!-- 제목 및 스타일 -->
 
