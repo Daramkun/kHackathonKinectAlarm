@@ -114,7 +114,7 @@
     <common:LayoutAwarePage.BottomAppBar>
         <AppBar>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="save" Style="{StaticResource SaveAppBarButtonStyle}"/>
+                <Button x:Name="save" Style="{StaticResource SaveAppBarButtonStyle}" Click="save_Click"/>
             </StackPanel>
         </AppBar>
     </common:LayoutAwarePage.BottomAppBar>
