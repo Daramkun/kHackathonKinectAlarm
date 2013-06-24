@@ -29,10 +29,8 @@
                 <ColumnDefinition Width="233*"/>
                 <ColumnDefinition Width="450*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="ActionList" HorizontalAlignment="Left" Height="404" Margin="264,52,0,0" VerticalAlignment="Top" Width="445" Grid.Column="1"/>
-            <TextBlock HorizontalAlignment="Left" Height="36" Margin="262,0,0,0" TextWrapping="Wrap" Text="AlarmList" FontSize="30" VerticalAlignment="Top" Width="151"/>
-            <TextBlock HorizontalAlignment="Left" Height="36" Margin="264,0,0,0" TextWrapping="Wrap" Text="ActionList" FontSize="30" VerticalAlignment="Top" Width="165" Grid.Column="1"/>
-            <ListBox x:Name="AlarmList"  HorizontalAlignment="Left" Height="404" Margin="262,52,0,0" VerticalAlignment="Top" Width="426" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Height="34" Margin="224,0,0,0" TextWrapping="Wrap" Text="AlarmList" FontSize="30" VerticalAlignment="Top" Width="151"/>
+            <ListBox x:Name="AlarmList"  HorizontalAlignment="Left" Height="404" Margin="224,67,0,0" VerticalAlignment="Top" Width="922" Grid.ColumnSpan="2"/>
             <!-- TODO: Application Page layout -->
 
         </Grid>
