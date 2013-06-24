@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectAlarm", "KinectAlarm\KinectAlarm.csproj", "{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectServer", "KinectServer\KinectServer.csproj", "{A88CB79C-600E-494F-AE37-C4653D94F656}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,16 @@ Global
 		{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}.Release|x86.ActiveCfg = Release|x86
 		{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}.Release|x86.Build.0 = Release|x86
 		{E42BD460-6A01-4F6C-A9F6-6C6A1BEB9044}.Release|x86.Deploy.0 = Release|x86
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Release|x64.ActiveCfg = Release|Any CPU
+		{A88CB79C-600E-494F-AE37-C4653D94F656}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
