@@ -59,7 +59,12 @@ namespace KinectAlarm
 				{
 					data = await client.GetDataAsync ( new Kinect () );
 				}
-				catch { return; }
+				catch ( Exception ex )
+				{
+					textNotice.Text = String.Format ( "문제가 발생했습니다:{0}",
+						ex );
+					return;
+				}
 
 				if ( data == null )
 				{
